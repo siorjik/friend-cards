@@ -1,14 +1,97 @@
-#friend-wrap {
-  width: 200px;
+@font-face {
+  font-family: lazer;
+  src: url(../../fonts/lazer.ttf);
+}
+
+@font-face {
+  font-family: khan;
+  src: url(../../fonts/khan.ttf);
+}
+
+
+
+h1 {
   text-align: center;
-  display: inline-block;
-  padding: 10px;
-  background: whitesmoke;
-  border-radius: 10px;
-  margin: 0 25px 10px 0;
+  font-family: lazer, sans-serif;
+  color: brown
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 5px 10px; 
+  font-family: khan, sans-serif;
+  font-size: 17px;
+  color: white;
 }
 
 .add-btn {
   margin-bottom: 50px;
   text-align: center;
+  font-size: 20px;
+}
+.add-btn button {
+  font-size: 20px;
+  background: beige;
+  border-radius: 5px;
+  transition: 0.3s all ease-out;
+  border: 2px solid white;
+}
+.add-btn button:hover {
+  color: grey;
+  background: white;
+  transform: scale(1.1);
+  border: 2px solid grey;
+}
+
+#friend-wrap {
+  width: 200px;
+  text-align: center;
+  display: inline-block;
+  padding: 10px;
+  background: bisque;
+  border-radius: 10px;
+  margin: 0 15px 10px 0;
+  border: 2px solid brown;
+  word-wrap: break-word;
+}
+
+#friend-wrap form input{
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  background: beige;
+}
+
+#friend-wrap .del-btn {
+  background: red;
+}
+#friend-wrap .del-btn:hover {
+  background: white;
+  color: red;
+}
+
+#friend-wrap .view-btn {
+  background: blue;
+}
+#friend-wrap .view-btn:hover {
+  background: white;
+  color: blue;
+}
+
+#friend-wrap .edit-btn {
+  background: orange;
+}
+#friend-wrap .edit-btn:hover {
+  background: white;
+  color: orange;
+}
+
+#friend-wrap .save-btn {
+  background: green;
+}
+#friend-wrap .save-btn:hover {
+  background: white;
+  color: green;
 }

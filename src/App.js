@@ -5,13 +5,13 @@ import {bindActionCreators} from 'redux';
 
 import Friends from "./containers/Friends";
 
-import {deleteFriend, addFriend} from "./actions/frendActions";
+import {deleteFriend, addFriend, saveFriend} from "./actions/frendActions";
 
 class App extends Component {
   render() {
     return (
       <div className='main-wrap'>
-        <Friends friends={this.props.friends} delFriend={this.props.delFriend} addFriend={this.props.addFriend}/>
+        <Friends friends={this.props.friends} delFriend={this.props.delFriend} addFriend={this.props.addFriend} saveFriend={this.props.saveFriend}/>
       </div>
     );
   }
@@ -31,7 +31,8 @@ function mapDispatchToProps(dispatch) {
   }*/
   return bindActionCreators({
     delFriend: deleteFriend,
-    addFriend: addFriend
+    addFriend: addFriend,
+    saveFriend: saveFriend
   }, dispatch);
 }
 

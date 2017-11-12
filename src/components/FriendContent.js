@@ -3,11 +3,12 @@ import React, {Component} from 'react';
 import ButtonDelFriend from './ButtonDelFriend';
 import EditFriend from './EditFriendBtn';
 import SaveFriendBtn from './SaveFriendBtn';
+import ViewFriendBtn from './ViewFriendBtn';
 
 export default class FriendContent extends Component {
   constructor(props) {
     super(props);
-    this.state = {edit: false}
+    this.state = {edit: false, addNew: this.props.newFriend}
   }
 
   editData() {
@@ -15,31 +16,33 @@ export default class FriendContent extends Component {
   }
 
   saveData() {
-    this.setState({edit: false});
-    this.savingNewData();
-  }
-
-  savingNewData(ev) {
-    console.log("new data");
+    this.setState({edit: false, addNew: false});
+    this.props.saveInfo(this.nameInp.value, this.ageInp.value, this.props.friend.id);
   }
 
   render() {
-    console.log(this.state.edit+" / "+this.props.friend.id);
-    let content;
-    if(this.state.edit) content = (
-      <form onSubmit={this.savingNewData.bind(this)}>
-        <label>Name: <input type="text"/></label>
-        <label>Age: <input type="number"/></label>
-        <SaveFriendBtn edit={this.state.edit} saveData={this.saveData.bind(this)}/>
-      </form>
-    );
-    else content = (<span className='friend-cont'><p>Name: {this.props.friend.name}</p><p>Age: {this.props.friend.age}</p></span>);
+    let content, name = this.props.friend.name, age = this.props.friend.age;
+    if(this.state.addNew) {
+      name = "name";
+      age = 0;
+    }
+    if(this.state.edit || this.state.addNew) {
+        content = (
+          <form onSubmit={this.saveData.bind(this)}>
+            <label><b><i>Name</i>:</b> <input type="text" ref={(input)=>{this.nameInp=input;}} defaultValue={name} required/></label>
+            <label><b><i>Age</i>:</b> <input type="number" ref={(input)=>{this.ageInp=input;}} defaultValue={age} required/></label>
+            <SaveFriendBtn edit={this.state.edit} saveData={this.saveData.bind(this)} addNew={this.state.addNew}/>
+          </form>
+        );
+    }
+    else content = (<span className='friend-cont'><p><b><i>Name</i>:</b> {this.props.friend.name}</p><p><b><i>Age</i>:</b> {this.props.friend.age}</p></span>);
 
     return (
       <span>
         {content}
-        <ButtonDelFriend delFriend={this.props.delFriend} friendId={this.props.friend.id} edit={this.state.edit}/>
-        <EditFriend editData={this.editData.bind(this)} edit={this.state.edit}/>
+        <ButtonDelFriend delFriend={this.props.delFriend} friendId={this.props.friend.id} edit={this.state.edit} addNew={this.state.addNew}/>
+        <ViewFriendBtn edit={this.state.edit} addNew={this.state.addNew}/>
+        <EditFriend editData={this.editData.bind(this)} edit={this.state.edit} addNew={this.state.addNew}/>
       </span>
     )
   }

@@ -2,9 +2,7 @@ import React, {Component} from 'react';
 
 export default class BtnAddFriend extends Component {
   add() {
-    //return this.props.addFriend();
-    console.log("add");
-    return this.props.addFriend();
+    return this.props.addNewFriend();
   }
 
   render() {
