@@ -7,8 +7,8 @@ export default class ButtonDelFriend extends Component {
 
   render() {
     let btn;
-    if(this.props.edit) btn = null;
-    else btn = (<button onClick={this.delete.bind(this)}>Delete friend</button>);
+    if(this.props.edit || this.props.addNew) btn = null;
+    else btn = (<button className='del-btn' onClick={this.delete.bind(this)}>Delete</button>);
 
     return (<span>{btn}</span>);
   }
