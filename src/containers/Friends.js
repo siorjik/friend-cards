@@ -15,11 +15,12 @@ export default class Friends extends Component {
     this.setState({newFriend: true});
   }
 
-  saveInfo(name, age, id) {
+  saveInfo(name, age, phone, id) {
     let friendData = {
       name: name,
       age: age,
-      id: id
+      id: id,
+      phone: phone
     }
     this.props.saveFriend(friendData);
   }
