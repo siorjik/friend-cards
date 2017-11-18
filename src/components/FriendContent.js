@@ -37,13 +37,13 @@ export default class FriendContent extends Component {
           </form>
         );
     }
-    else content = (<span className='friend-cont'><p><b><i>Name</i>:</b> {this.props.friend.name}</p><p><b><i>Age</i>:</b> {this.props.friend.age}</p><p><b><i>Phone</i>:</b> {this.props.friend.phone}</p></span>);
+    else content = (<span className='friend-cont'><p><b><i>Name</i>:</b> {this.props.friend.name}</p><p><b><i>Age</i>:</b> {this.props.friend.age}</p><p style={{marginBottom: '57px'}}><b><i>Phone</i>:</b> {this.props.friend.phone}</p></span>);
 
     return (
       <span>
         {content}
         <ButtonDelFriend delFriend={this.props.delFriend} friendId={this.props.friend.id} edit={this.state.edit} addNew={this.state.addNew}/>
-        <ViewFriendBtn edit={this.state.edit} addNew={this.state.addNew}/>
+        <ViewFriendBtn edit={this.state.edit} addNew={this.state.addNew} id={this.props.friend.id}/>
         <EditFriend editData={this.editData.bind(this)} edit={this.state.edit} addNew={this.state.addNew}/>
       </span>
     )

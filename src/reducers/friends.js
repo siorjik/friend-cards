@@ -18,24 +18,30 @@ let friendsList = [
 export default function getFriends(state = friendsList, action) {
   switch(action.type) {
     case "DELETE_FRIEND":
-      return _.filter(state, (state)=>action.payload !== state.id);
+    return _.filter(state, (state)=>action.payload !== state.id);
+
     case "ADD_FRIEND":
+      let lastId = _.last(state);
+      if(lastId) lastId = lastId.id + 1;
+      else lastId = 1;
       let newFriend = {
-        id: new Date().toString(),
+        id: lastId,
         name: "name",
         age: 0,
-        phone: 0
+        phone: "0"
       }
-      return [...state, newFriend];
+    return [...state, newFriend];
+
     case "SAVE_FRIEND":
-      return _.map(state, (friend)=>{
-        if(friend.id === action.payload.id) {
-          friend.name = action.payload.name;
-          friend.age = action.payload.age;
-          friend.phone = action.payload.phone;
-        }
-        return friend;
-      });
+    return _.map(state, (friend)=>{
+      if(friend.id === action.payload.id) {
+        friend.name = action.payload.name;
+        friend.age = action.payload.age;
+        friend.phone = action.payload.phone;
+      }
+      return friend;
+    });
+
     default: return state;
   }
 }

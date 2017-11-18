@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import {connect} from "react-redux";
 import {bindActionCreators} from 'redux';
+import {withRouter} from 'react-router-dom';
 
 import Friends from "./containers/Friends";
 
@@ -17,7 +18,8 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+  console.log(ownProps);
   return {
     friends: state.getFriends
   }
@@ -36,4 +38,4 @@ function mapDispatchToProps(dispatch) {
   }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
