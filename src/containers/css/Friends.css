@@ -28,14 +28,14 @@ button {
   text-align: center;
   font-size: 20px;
 }
-.add-btn button {
+.add-btn button, .view-back {
   font-size: 20px;
   background: beige;
   border-radius: 5px;
   transition: 0.3s all ease-out;
   border: 2px solid white;
 }
-.add-btn button:hover {
+.add-btn button:hover, .view-back:hover {
   color: grey;
   background: white;
   transform: scale(1.1);
@@ -93,3 +93,7 @@ button {
   background: white;
   color: green;
 }
+
+/*#friend-wrap form {
+  min-height: 200px;
+}*/

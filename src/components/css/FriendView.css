@@ -1,0 +1,13 @@
+.friend-view {
+  text-align: center;
+  margin: 0 auto;
+  background: bisque;
+  border-radius: 10px;
+  width: 50%;
+  border: 2px solid brown;
+  padding: 0 0 10px 0;
+}
+
+.friend-view span {
+  color: olive;
+}
