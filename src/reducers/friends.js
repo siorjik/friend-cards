@@ -5,13 +5,13 @@ let friendsList = [
     id: 1,
     name: "Mike",
     age: 22,
-    phone: "0666106217"
+    phone: "1234567890"
   },
   {
     id: 2,
     name: "John",
     age: 35,
-    phone: "0666106217"
+    phone: "1234567890"
   }
 ];
 
