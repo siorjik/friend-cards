@@ -6,22 +6,21 @@ import {withRouter} from 'react-router-dom';
 
 import Friends from "./containers/Friends";
 
-import {deleteFriend, addFriend, saveFriend} from "./actions/frendActions";
+import {deleteFriend, addFriend, saveFriend, filterFriendAct} from "./actions/frendActions";
 
 class App extends Component {
   render() {
     return (
       <div className='main-wrap'>
-        <Friends friends={this.props.friends} delFriend={this.props.delFriend} addFriend={this.props.addFriend} saveFriend={this.props.saveFriend}/>
+        <Friends friends={this.props.friends} delFriend={this.props.delFriend} addFriend={this.props.addFriend} saveFriend={this.props.saveFriend} filterFriend={this.props.filterFriend}/>
       </div>
     );
   }
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log(ownProps);
   return {
-    friends: state.getFriends
+    friends: state.getFriends.filter(friend => friend.name.includes(state.filterFriend))
   }
 }
 
@@ -34,7 +33,8 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     delFriend: deleteFriend,
     addFriend: addFriend,
-    saveFriend: saveFriend
+    saveFriend: saveFriend,
+    filterFriend: filterFriendAct
   }, dispatch);
 }
 

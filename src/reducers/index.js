@@ -1,10 +1,11 @@
 import {combineReducers} from "redux";
-import getFriends from "./friends";
+import {getFriends, filterFriend} from "./friends";
 import {routerReducer} from 'react-router-redux';
 
 let rootReducer = combineReducers({
   routing: routerReducer,
-  getFriends
+  getFriends,
+  filterFriend
 });
 
 export default rootReducer;

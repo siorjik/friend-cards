@@ -20,7 +20,6 @@ class FriendView extends Component {
 }
 
 let mapStateToProps = (state, ownProps)=>{
-  console.log(ownProps);
   return {
     friend: state.getFriends.find((friend)=>friend.id === +ownProps.match.params.id)
   }
