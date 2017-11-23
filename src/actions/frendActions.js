@@ -17,3 +17,10 @@ export const saveFriend = (data)=>{
     payload: data
   }
 }
+
+export const filterFriendAct = (data) => {
+  return {
+    type: "FILTER_FRIEND",
+    payload: data
+  }
+}

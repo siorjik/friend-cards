@@ -15,7 +15,7 @@ let friendsList = [
   }
 ];
 
-export default function getFriends(state = friendsList, action) {
+export function getFriends(state = friendsList, action) {
   switch(action.type) {
     case "DELETE_FRIEND":
     return _.filter(state, (state)=>action.payload !== state.id);
@@ -44,4 +44,9 @@ export default function getFriends(state = friendsList, action) {
 
     default: return state;
   }
+}
+
+export function filterFriend(state = "", action) {
+  if(action.type === "FILTER_FRIEND") return action.payload;
+  else return state;
 }
